@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=100%">
+    <title>Collapsible Sidebar</title>
+    <style>
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background-color: teal;
+            color: white;
+            position: fixed;
+            top: 0;
+            left: -250px;
+            transition: left 0.3s ease;
+        }
+        .sidebar.active {
+            left: 0;
+        }
+        .toggle-btn {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            cursor: pointer;
+            z-index: 1;
+            color: white;
+            font-size: 24px;
+        }
+        .sidebar-content {
+            padding: 20px;
+        }
+        .sidebar-content a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+        .sidebar-content a i {
+            margin-right: 10px;
+        }
+        .search-container {
+            margin: 20px 0;
+        }
+        .search-container input {
+            width: 80%;
+            padding: 5px;
+            margin-right: 5px;
+            border: none;
+            border-radius: 4px;
+        }
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 200px;
+                left: -200px;
+            }
+            .sidebar.active {
+                left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="toggle-btn" onclick="toggleSidebar()">☰</div>
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-content">
+            <div>Collapsible Sidebar</div>
+            <div class="search-container">
+                <input type="text" placeholder="Search..." onkeypress="if(event.key === 'Enter') search()">
+            </div>
+            <a href="#"><i>🏠</i>Home</a>
+            <a href="#"><i>ℹ️</i>About</a>
+            <a href="#"><i>⚙️</i>Services</a>
+            <a href="#"><i>📞</i>Contact</a>
+        </div>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('active');
+        }
+        function search() {
+            // Add your search logic here
+            alert("Search functionality to be implemented!");
+        }
+    </script>
+</body>
+</html>
